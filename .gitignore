@@ -1,0 +1,9 @@
+build/
+build-host/
+dist/
+sdk/
+core/
+*.nes
+*.gba
+*.sfc
+*.srm
