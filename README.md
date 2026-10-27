@@ -9,7 +9,8 @@ static program.
 
 The game fills the top of the screen and an on-screen pad is below it: a D-pad, A and B, L and R,
 SELECT and START, and SAVE, LOAD and EXIT keys. SAVE and LOAD keep one save state per game. EXIT
-has to be held for a moment. Battery saves are written to `Saves/GBA/<game>.srm` on the card.
+takes two taps, and a tap on the picture shows or hides an FPS counter. Battery saves are written to
+`Saves/GBA/<game>.srm` on the card.
 
 ## Installing
 
