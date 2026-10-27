@@ -18,8 +18,9 @@ has to be held for a moment. Battery saves are written to `Saves/GBA/<game>.srm`
 3. Open **More > Emulators > GBA**.
 
 The folder holds two programs: `gba`, which uses the recompiler, and `gba-interp`, which does not.
-The recompiler is a lot faster. If a game misbehaves with it, change `exec = gba` to
-`exec = gba-interp` in `manifest.ini`; it is slower but does not depend on the recompiler.
+The recompiler is a lot faster. The app starts through `run.sh`, which runs `gba` and, if that crashes,
+starts `gba-interp` with the same game. To use the interpreter only, change `exec = run.sh` to
+`exec = gba-interp` in `manifest.ini`. What the app prints is in `last-run.log` in its folder.
 
 **I have not been able to run the recompiler on a player yet.** The interpreter has been tried
 with a test ROM on a computer; the MIPS build with the recompiler has only been built.

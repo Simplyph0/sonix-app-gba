@@ -6,9 +6,8 @@
 #   make host     builds an interpreter-only program for this computer, to try it off the player
 #   make package  makes dist/GBA/ ready to copy to <card>/Apps/
 #
-# gba-interp is the same program without the recompiler: slower, but the fallback if the
-# recompiler misbehaves on a game. To use it, change `exec = gba` in manifest.ini to
-# `exec = gba-interp` (the package contains both).
+# gba-interp is the same program without the recompiler: slower, but the fallback. The app
+# is started through run.sh, which runs gba and, if that crashes, gba-interp with the same game.
 #
 # Variables worth knowing: CROSS (the toolchain prefix), SDK (a checkout of
 # sonix-app-sdk, default ./sdk), CORE (a checkout of the gpsp libretro core).
@@ -79,7 +78,8 @@ $(OUTDIR)/$(PROGRAM): $(OUTDIR)/$(LIBNAME) $(SDK)/frontend/sonix_libretro.c $(SD
 
 package: all
 	rm -rf dist/GBA && mkdir -p dist/GBA
-	cp $(OUT)/gba $(OUT)/gba-interp dist/GBA/
+	cp $(OUT)/gba $(OUT)/gba-interp run.sh dist/GBA/
+	chmod +x dist/GBA/run.sh
 	cp manifest.ini icon.png dist/GBA/
 	@echo "dist/GBA is ready: copy it to <card>/Apps/"
 
